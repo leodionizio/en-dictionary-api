@@ -23,6 +23,7 @@
   "dependencies": {
     "@liaoliaots/nestjs-redis": "^10.0.0",
     "@nestjs/axios": "^3.1.2",
+    "@nestjs/cli": "^10.4.7",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.3.0",
     "@nestjs/core": "^10.0.0",
@@ -41,7 +42,6 @@
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
-    "@nestjs/cli": "^10.4.7",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",
     "@types/bcryptjs": "^2.4.6",
