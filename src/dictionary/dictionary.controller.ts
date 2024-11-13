@@ -5,7 +5,7 @@ import {
   Param,
   Post,
   Query,
-  Request,
+  Req,
   UseGuards,
 } from '@nestjs/common';
 import { DictionaryService } from './dictionary.service';
@@ -30,23 +30,23 @@ export class DictionaryController {
   }
 
   @Get(':word')
-  async getWord(@Param('word') word: string, @Request() req) {
-    return await this.dictionaryService.findOne(word, req.user.id);
+  async getWord(@Param('word') word: string, @Req() req) {
+    return await this.dictionaryService.findOne(word, req.user.sub);
   }
 
   @Post(':word/favorite')
-  async addWordToFavorites(@Param('word') word: string, @Request() req) {
+  async addWordToFavorites(@Param('word') word: string, @Req() req) {
     return await this.dictionaryService.addWordToUserFavorites(
       word,
-      req.user.id,
+      req.user.sub,
     );
   }
 
   @Delete(':word/unfavorite')
-  async removeWordFromFavorites(@Param('word') word: string, @Request() req) {
+  async removeWordFromFavorites(@Param('word') word: string, @Req() req) {
     return await this.dictionaryService.removeWordFromUserFavorites(
       word,
-      req.user.id,
+      req.user.sub,
     );
   }
 }

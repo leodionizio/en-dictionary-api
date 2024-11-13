@@ -1,4 +1,9 @@
-import { Module, ValidationPipe } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  ValidationPipe,
+} from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { APP_PIPE } from '@nestjs/core';
 import { AuthModule } from './auth/auth.module';
@@ -14,6 +19,7 @@ import { FavoriteModule } from './favorite/favorite.module';
 import { Favorite } from './favorite/favorite.entity';
 import { CacheModule } from './cache/cache.module';
 import { ConfigModule } from '@nestjs/config';
+import { CacheMiddleware } from './middleware/cache.middleware';
 
 @Module({
   imports: [
@@ -46,4 +52,8 @@ import { ConfigModule } from '@nestjs/config';
     },
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(CacheMiddleware).forRoutes('*');
+  }
+}

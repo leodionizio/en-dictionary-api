@@ -1,4 +1,4 @@
-import { Controller, Get, Request, UseGuards } from '@nestjs/common';
+import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { plainToClass } from 'class-transformer';
@@ -10,20 +10,18 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get('me')
-  async getMe(@Request() req) {
-    const user = await this.userService.findUserById(req.user.id);
+  async getMe(@Req() req) {
+    const user = await this.userService.findUserById(req.user.sub);
     return plainToClass(User, user, { excludeExtraneousValues: true });
   }
 
   @Get('me/history')
-  async getUserHistory(@Request() req) {
-    const userId = req.user.id;
-    return this.userService.findUserHistory(userId);
+  async getUserHistory(@Req() req) {
+    return this.userService.findUserHistory(req.user.sub);
   }
 
   @Get('me/favorites')
-  async getUserFavorites(@Request() req) {
-    const userId = req.user.id;
-    return this.userService.findUserFavorites(userId);
+  async getUserFavorites(@Req() req) {
+    return this.userService.findUserFavorites(req.user.sub);
   }
 }
