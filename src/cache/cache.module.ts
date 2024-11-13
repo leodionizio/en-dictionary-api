@@ -9,9 +9,9 @@ import { CacheService } from './cache.service';
     ConfigModule.forRoot(),
     RedisModule.forRoot({
       config: {
-        host: process.env.REDIS_HOST || 'redis',
-        port: Number(process.env.REDIS_PORT) || 6379,
-        // password: process.env.REDIS_PASSWORD,
+        url: process.env.REDIS_URL,
+        host: process.env.REDIS_HOST,
+        port: Number(process.env.REDIS_PORT),
       },
     }),
   ],
