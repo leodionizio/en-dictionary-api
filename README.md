@@ -48,10 +48,10 @@ Este comando irá subir o serviço da API e o banco de dados PostgreSQL em conta
 Após iniciar o Docker, é necessário popular o banco de dados com palavras em inglês. Para isso, execute o comando abaixo para rodar um seed no banco a partir do container do banco de dados:
 
 ```bash
-docker exec -it <container_do_banco> yarn run seed
+docker exec -it <container_da_api> yarn run seed
 ```
 
-Substitua `<container_do_banco>` pelo nome do container do banco de dados que está rodando (você pode obtê-lo com o comando `docker ps`).
+Substitua `<container_da_api>` pelo nome do container da aplicação (api) que está rodando (você pode obtê-lo com o comando `docker ps`).
 
 A API estará disponível na porta **3000** por padrão.
 
