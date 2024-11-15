@@ -101,6 +101,13 @@ Este projeto utiliza o Jest para realizar os testes unitários e de integração
 
 Certifique-se de ter as dependências necessárias instaladas e o ambiente configurado corretamente antes de rodar os testes.
 
-## Licença
+## 🔧 Pendências
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Ainda restam algumas pendências de desenvolvimento para este projeto, que estão listadas abaixo.
+
+- [ ] Finalizar a documentaão utilizando o swagger.
+- [ ] Adicionar logger de erros e/ou aplicação para monitoramento de erros.
+- [ ] Adicionar uma documentação técnica ADR.
+- [ ] Implmentar validaçÕes nos campos de formulário nas telas de `signin` e `signup`.
+- [ ] Controlador de versionamento e CHANGELOG.
+- [ ] Finalizar o CI/CD.
