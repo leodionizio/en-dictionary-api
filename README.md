@@ -2,7 +2,15 @@
 
 A **en-dictionary-api** é uma API simples desenvolvida para fornecer detalhes sobre palavras em inglês. A API permite consultar palavras e suas respectivas definições, o que pode ser útil para diversos tipos de aplicação, como dicionários, tradutores ou sistemas de aprendizado de idiomas.
 
-## Tecnologias Utilizadas
+## 🌐 Link para Produção
+
+A aplicação está disponível em produção no seguinte link: [en-dictionary-api](https://en-dictionary-api.onrender.com)
+
+## 📚 Documentação/Swagger
+
+A documentação da API criada com Swagger encontra-se no link: [swagger](https://en-dictionary-api.onrender.com/api)
+
+## 🚀 Tecnologias Utilizadas
 
 - **Linguagem**: TypeScript
 - **Framework**: NestJS
@@ -14,7 +22,7 @@ A **en-dictionary-api** é uma API simples desenvolvida para fornecer detalhes s
 - **Autenticação**: JWT (JSON Web Tokens)
 - **Testes**: Jest
 
-## Instalação e Uso
+## 📦 Instalação e Uso
 
 ### Passo 1: Clonar o Repositório
 
@@ -66,7 +74,7 @@ Exemplo de consulta para obter informações de uma palavra:
 GET http://localhost:3000/words/hello
 ```
 
-## Rodando os Testes
+## 🧪 Rodando os Testes
 
 Este projeto utiliza o Jest para realizar os testes unitários e de integração. Você pode executar os testes de diferentes formas, dependendo da necessidade. Abaixo estão os comandos disponíveis:
 
@@ -107,7 +115,7 @@ Ainda restam algumas pendências de desenvolvimento para este projeto, que estã
 
 - [ ] Finalizar a documentaão utilizando o swagger.
 - [ ] Adicionar logger de erros e/ou aplicação para monitoramento de erros.
-- [ ] Adicionar uma documentação técnica ADR.
+- [x] Adicionar uma documentação técnica ADR.
 - [ ] Implmentar validaçÕes nos campos de formulário nas telas de `signin` e `signup`.
 - [ ] Controlador de versionamento e CHANGELOG.
 - [ ] Finalizar o CI/CD.
