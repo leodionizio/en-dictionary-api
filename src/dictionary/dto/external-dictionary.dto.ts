@@ -15,10 +15,17 @@ export class MeaningDto {
   definitions: DefinitionDto[];
 }
 
+export class LicenseDto {
+  name: string;
+  url: string;
+}
+
 export class ExternalDictionaryResponseDto {
   word: string;
   phonetic?: string;
   phonetics: PhoneticDto[];
   origin?: string;
   meanings: MeaningDto[];
+  license: LicenseDto;
+  sourceUrls: string[];
 }
