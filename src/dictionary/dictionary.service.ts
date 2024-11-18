@@ -76,7 +76,6 @@ export class DictionaryService {
     let cachedResult =
       await this.cacheService.get<CursorPagination<string[]>>(cacheKey);
 
-    // Se não encontrar no cache, buscar no banco e adicionar ao cache
     if (!cachedResult) {
       let whereCondition = {};
 
@@ -118,7 +117,6 @@ export class DictionaryService {
         hasPrev,
       };
 
-      // Armazenar os resultados no cache por 180 segundos (EXPIRE)
       await this.cacheService.set(cachedResult, cacheKey);
     }
 
@@ -162,7 +160,7 @@ export class DictionaryService {
     return result;
   }
 
-  async addWordToUserFavorites(word: string, userId: string) {
+  async addWordToUserFavorites(word: string, userId: string): Promise<void> {
     const dictionary = await this.dictionaryRepository.findOne({
       where: { word },
     });
@@ -176,7 +174,10 @@ export class DictionaryService {
     return this.favoriteService.addWordToUserFavorites(dictionary, user);
   }
 
-  async removeWordFromUserFavorites(word: string, userId: string) {
+  async removeWordFromUserFavorites(
+    word: string,
+    userId: string,
+  ): Promise<void> {
     const dictionary = await this.dictionaryRepository.findOne({
       where: { word },
     });

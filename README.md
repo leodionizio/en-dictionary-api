@@ -113,9 +113,7 @@ Certifique-se de ter as dependências necessárias instaladas e o ambiente confi
 
 Ainda restam algumas pendências de desenvolvimento para este projeto, que estão listadas abaixo.
 
-- [ ] Finalizar a documentaão utilizando o swagger.
-- [ ] Adicionar logger de erros e/ou aplicação para monitoramento de erros.
+- [x] Finalizar a documentação utilizando o swagger.
 - [x] Adicionar uma documentação técnica ADR.
-- [ ] Implmentar validaçÕes nos campos de formulário nas telas de `signin` e `signup`.
+- [ ] Adicionar os headers para identificar a presença do cache nas requisições
 - [ ] Controlador de versionamento e CHANGELOG.
-- [ ] Finalizar o CI/CD.

@@ -10,6 +10,11 @@ import {
 } from '@nestjs/common';
 import { DictionaryService } from './dictionary.service';
 import { AuthGuard } from '../auth/auth.guard';
+import { ApiResponse } from '@nestjs/swagger';
+import {
+  DictionaryResponseDto,
+  PaginatedDictionaryResponseDto,
+} from './dto/dictionary.dto';
 
 @Controller('entries/en')
 @UseGuards(AuthGuard)
@@ -17,6 +22,11 @@ export class DictionaryController {
   constructor(private readonly dictionaryService: DictionaryService) {}
 
   @Get()
+  @ApiResponse({
+    status: 200,
+    description: 'Get word details sucessful',
+    type: PaginatedDictionaryResponseDto,
+  })
   async getAllWords(
     @Query('limit') limit = 10,
     @Query('cursor') cursor?: string,
@@ -30,6 +40,11 @@ export class DictionaryController {
   }
 
   @Get(':word')
+  @ApiResponse({
+    status: 200,
+    description: 'Get word details sucessful',
+    type: DictionaryResponseDto,
+  })
   async getWord(@Param('word') word: string, @Req() req) {
     return await this.dictionaryService.findOne(word, req.user.sub);
   }

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-wrapper-object-types */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@nestjs/common';
 import {
   ValidatorConstraint,
@@ -6,22 +8,22 @@ import {
   ValidationOptions,
   registerDecorator,
 } from 'class-validator';
-import { UserService } from '../../user/user.service'; // Caminho correto do UserService
+import { UserService } from '../../user/user.service';
 
 @ValidatorConstraint({ async: true })
 @Injectable()
 export class IsEmailUniqueConstraint implements ValidatorConstraintInterface {
   constructor(private readonly userService: UserService) {
     console.log('UserService injected:', userService);
-  } // Injeção do UserService
+  }
 
   async validate(email: string, args: ValidationArguments): Promise<boolean> {
-    const user = await this.userService.findUserByEmail(email); // Verifica se o email já existe
-    return !user; // Se o usuário já existir, retorna false (email não é único)
+    const user = await this.userService.findUserByEmail(email);
+    return !user;
   }
 
   defaultMessage(args: ValidationArguments): string {
-    return 'Email is already in use'; // Mensagem personalizada para quando o email não for único
+    return 'Email is already in use';
   }
 }
 

@@ -105,7 +105,7 @@ describe('AuthService', () => {
     //   const invalidRequest = {
     //     ...authMock.signup.request,
     //     email: 'invalidEmail',
-    //   }; // Exemplo de email inválido
+    //   };
     //   try {
     //     await authService.signup(invalidRequest);
     //   } catch (error) {
